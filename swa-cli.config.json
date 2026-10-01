@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "mvp-azure": {
+      "appLocation": "web",
+      "apiLocation": "api",
+      "apiLanguage": "node",
+      "apiVersion": "22"
+    }
+  }
+}

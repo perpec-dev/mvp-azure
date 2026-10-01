@@ -1,0 +1,14 @@
+{
+  "name": "mvp-azure-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.3.0",
+    "@azure/functions": "^4.6.0",
+    "@azure/storage-blob": "^12.26.0"
+  }
+}

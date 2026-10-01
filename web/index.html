@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>MVP Azure</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>MVP Azure</h1>
+    <div class="topbar-right">
+      <span id="api-status" class="pill" data-kind="pending">Verificando API…</span>
+      <span id="user-name" class="user-name"></span>
+      <a class="btn btn-small btn-ghost" href="/logout">Sair</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2>Registros</h2>
+        <button id="btn-new" type="button" class="btn">+ Novo</button>
+      </div>
+      <ul id="record-list" class="record-list"></ul>
+      <p id="list-empty" class="muted" hidden>Nenhum registro ainda.</p>
+    </aside>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2 id="form-title">Novo registro</h2>
+        <span id="save-status" class="save-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <form id="form" novalidate>
+        <div class="grid">
+          <label>Nome
+            <input name="nome" required maxlength="200" autocomplete="name">
+          </label>
+          <label>E-mail
+            <input name="email" type="email" maxlength="200" autocomplete="email">
+          </label>
+          <label>Telefone
+            <input name="telefone" type="tel" maxlength="40" autocomplete="tel">
+          </label>
+          <label>Categoria
+            <select name="categoria">
+              <option value="">Selecione…</option>
+              <option>Orçamento</option>
+              <option>Inspeção</option>
+              <option>Manutenção</option>
+              <option>Outro</option>
+            </select>
+          </label>
+          <label>Data
+            <input name="data" type="date">
+          </label>
+        </div>
+        <label>Descrição
+          <textarea name="descricao" rows="5" maxlength="4000"></textarea>
+        </label>
+      </form>
+
+      <section class="files">
+        <h3>Anexos <span class="muted">(imagens e PDF, até 10 MB cada)</span></h3>
+        <label id="drop-zone" class="drop-zone">
+          <input id="file-input" type="file" multiple
+                 accept="image/png,image/jpeg,image/gif,image/webp,application/pdf">
+          <span>Arraste arquivos aqui ou <u>clique para escolher</u></span>
+        </label>
+        <p id="file-msg" class="file-msg" role="status" aria-live="polite"></p>
+        <ul id="file-list" class="file-list"></ul>
+      </section>
+
+      <footer class="panel-foot">
+        <button id="btn-delete" type="button" class="btn btn-danger" hidden>Excluir registro</button>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

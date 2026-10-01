@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Sem acesso · MVP Azure</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <h1>Sem permissão</h1>
+    <p>Você entrou como <strong id="who">—</strong>, mas essa conta ainda não foi convidada para este aplicativo.</p>
+    <p class="muted">Peça ao administrador um convite com a função <code>usuario</code> e abra o link do convite.</p>
+    <a class="btn btn-block" href="/logout">Sair e entrar com outra conta</a>
+  </main>
+  <script>
+    fetch("/.auth/me")
+      .then((res) => res.json())
+      .then(({ clientPrincipal }) => {
+        if (clientPrincipal) document.getElementById("who").textContent = clientPrincipal.userDetails;
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
