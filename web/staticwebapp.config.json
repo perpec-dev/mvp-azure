@@ -6,7 +6,6 @@
     { "route": "/login.html", "allowedRoles": ["anonymous", "authenticated"] },
     { "route": "/sem-acesso.html", "allowedRoles": ["anonymous", "authenticated"] },
     { "route": "/styles.css", "allowedRoles": ["anonymous", "authenticated"] },
-    { "route": "/login", "redirect": "/.auth/login/aad?post_login_redirect_uri=/" },
     { "route": "/logout", "redirect": "/.auth/logout?post_logout_redirect_uri=/login.html" },
     { "route": "/.auth/login/github", "statusCode": 404 },
     { "route": "/*", "allowedRoles": ["usuario"] }
